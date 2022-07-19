@@ -30,8 +30,16 @@ resources = {
     "coffee": 100,
 }
 
+# new_resource('water', 100) -- Example of Class
+# maybe use to create a drink order that consists of more than one drink
+# class new_resource: 
+#     def __init__(self, name, value): 
+#         self.name = name 
+#         self.value = value
+
 stillOrdering = True
 
+# need to check if theres enough resources for another drink
 def check_resources():
     return resources
 
@@ -55,6 +63,19 @@ def refill_resource(type, value):
     return resources
 
 while stillOrdering: 
+    if resources["water"] < 100:
+        answer = input("Would you like to refill the water? y/n")
+        if answer == "y":
+            refill_resource("water", 100)
+    if resources["milk"] < 100:
+        answer = input("Would you like to refill the milk? y/n")
+        if answer == "y":
+            refill_resource("milk", 100)
+    if resources["coffee"] < 100:
+        anwser = input("Would you like to refill the coffee? y/n")
+        if answer == "y":
+            refill_resource("coffee", 100)
+        
     drinkOrder = input("What would you like? (espresso/latte/cappuccino): ")
     drinkOrder = drinkOrder.lower()
 
